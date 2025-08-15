@@ -5,6 +5,7 @@ on:
     paths:
       - 'index.html'
       - 'schema-snippet.html'   # Change this path to match your schema file's location
+  workflow_dispatch:
 
 jobs:
   inject-schema:
