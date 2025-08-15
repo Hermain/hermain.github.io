@@ -11,16 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # Read your schema snippet into a variable
-      - name: Read schema snippet
-        id: schema
-        run: |
-          export SCHEMA="$(cat schema-snippet.html)"
-          echo "SCHEMA<<EOF" >> $GITHUB_ENV
-          echo "$SCHEMA" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
       # Remove ALL old schema blocks, inject the new one
       - name: Remove old schema and inject latest
         run: |
@@ -28,7 +18,7 @@ jobs:
           perl -0777 -i -pe 's|<script type="application/ld\+json">.*?</script>\n*||gs' index.html
           # Inject the latest schema before </head>
           # Use envsubst to safely insert large multiline content
-          perl -0777 -i -pe "s|</head>|$ENV{SCHEMA}\n</head>|" index.html
+          perl -0777 -i -pe "s|</head>|$(cat schema-snippet.html)\n</head>|" index.html
 
       # Commit & push if changes occurred
       - name: Commit changes
