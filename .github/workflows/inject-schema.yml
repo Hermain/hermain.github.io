@@ -1,0 +1,40 @@
+name: Inject Schema Markup
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - 'schema-snippet.html'   # Change this path to match your schema file's location
+
+jobs:
+  inject-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Read your schema snippet into a variable
+      - name: Read schema snippet
+        id: schema
+        run: |
+          export SCHEMA="$(cat schema-snippet.html)"
+          echo "SCHEMA<<EOF" >> $GITHUB_ENV
+          echo "$SCHEMA" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      # Remove ALL old schema blocks, inject the new one
+      - name: Remove old schema and inject latest
+        run: |
+          # Remove ALL <script type="application/ld+json"> blocks
+          perl -0777 -i -pe 's|<script type="application/ld\+json">.*?</script>\n*||gs' index.html
+          # Inject the latest schema before </head>
+          # Use envsubst to safely insert large multiline content
+          perl -0777 -i -pe "s|</head>|$ENV{SCHEMA}\n</head>|" index.html
+
+      # Commit & push if changes occurred
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Inject latest schema markup"
+          git push
