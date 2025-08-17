@@ -17,8 +17,9 @@ jobs:
         run: |
           # Remove ALL <script type="application/ld+json"> blocks
           perl -0777 -i -pe 's|<script type="application/ld\+json">.*?</script>\n*||gs' index.html
-          # sed -i for inplace replacement, /i to insert before </head> the output of cat schema-snippet.html
-          sed -i '/<\/head>/i cat schema-snippet.html' index.html      # Commit & push if changes occurred
+          # sed -i for inplace replacement, /e to insert before </head> the output of cat schema-snippet.html
+          ## ASSUMES THE schema-snippet.html file ends with a </head>
+          sed -i '/<\/head>/e cat schema-snippet.html' index.html
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
