@@ -18,6 +18,7 @@ jobs:
           # Remove ALL <script type="application/ld+json"> blocks
           perl -0777 -i -pe 's|<script type="application/ld\+json">.*?</script>\n*||gs' index.html
           # sed -i for inplace replacement, /e to insert before </head> the output of cat schema-snippet.html
+          # Have schema end with a new line so that the <\/head> is on a new line
           sed -i '/<\/head>/e cat schema-snippet.html' index.html
       - name: Commit changes
         run: |
