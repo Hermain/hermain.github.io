@@ -21,7 +21,7 @@ jobs:
           # Have schema end with a new line so that the </head> is on a new line
           sed -i '/<\/head>/e cat schema-snippet.html' index.html
           # Remove leading whitespace before </head> to ensure clean insertion. No idea where it comes from. Dont waste more time
-          sed -i 's/^[[:space:]]*</head>/</head>/' index.html
+          sed -i 's/^[[:space:]]*<\/head>/<\/head>/' index.html
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
