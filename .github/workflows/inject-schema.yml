@@ -17,9 +17,8 @@ jobs:
         run: |
           # Remove ALL <script type="application/ld+json"> blocks
           perl -0777 -i -pe 's|<script type="application/ld\+json">.*?</script>\n*||gs' index.html
-          # Use envsubst to safely insert large multiline content
-          perl -0777 -i -pe 's|</head>|$(cat schema-snippet.html)\n</head>|' index.html
-      # Commit & push if changes occurred
+          # sed -i for inplace replacement, /i to insert before </head> the output of cat schema-snippet.html
+          sed -i '/<\/head>/i cat schema-snippet.html' index.html      # Commit & push if changes occurred
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
