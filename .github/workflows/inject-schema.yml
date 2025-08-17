@@ -17,10 +17,8 @@ jobs:
         run: |
           # Remove ALL <script type="application/ld+json"> blocks
           perl -0777 -i -pe 's|<script type="application/ld\+json">.*?</script>\n*||gs' index.html
-          # Indent schema-snippet.html by one tab and inject before </head>
-          sed 's/^/\t/' schema-snippet.html > schema-snippet-indented.html
-          perl -0777 -i -pe "s|</head>|$(cat schema-snippet-indented.html)\n</head>|" index.html
-
+          # Use envsubst to safely insert large multiline content
+          perl -0777 -i -pe "s|</head>|$(cat schema-snippet.html)\n</head>|" index.html
       # Commit & push if changes occurred
       - name: Commit changes
         run: |
