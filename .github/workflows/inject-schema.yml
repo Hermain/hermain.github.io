@@ -22,6 +22,10 @@ jobs:
           sed -i '/<\/head>/e cat schema-snippet.html' index.html
           # Remove leading whitespace before </head> to ensure clean insertion. No idea where it comes from. Dont waste more time
           sed -i 's/^[[:space:]]*<\/head>/<\/head>/' index.html
+      # Add lang="de" to <html> tag because its missing in mobirise free afaik
+      - name: Add lang="de" to <html> tag
+        run: |
+          sed -i 's/<html[[:space:]]*>/<html lang="de">/' index.html
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
