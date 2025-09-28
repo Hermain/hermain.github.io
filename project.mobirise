@@ -71,7 +71,7 @@
     "siteUrl": "https://hebamme-lara.ch",
     "sitemapSwitcherAuto": false,
     "favicon": false,
-    "mbrsiteDomain": "xk6pozxkak",
+    "mbrsiteDomain": "skgeqwqxkg",
     "usedWebp": true,
     "robotsSwitcher": true,
     "uniqCompNum": 75,
@@ -754,11 +754,11 @@
           "_sourceTheme": "mobirise5",
           "_customHTML": "<section data-bs-version=\"5.1\" class=\"content8\" group=\"Content\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"2\">\n        <input type=\"range\" name=\"textWidth\" title=\"Width\" min=\"4\" max=\"12\" value=\"10\" step=\"1\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Stylized\" name=\"stylizedCounters\">\n        <input type=\"checkbox\" title=\"Mark\" name=\"mark\" condition=\"stylizedCounters\">\n        <select title=\"Type\" name=\"countersType\" condition=\"stylizedCounters\">\n            <option value=\"default\" selected>circle Fill</option>\n            <option value=\"circle\">Circle</option>\n            <option value=\"square\">Square</option>\n        </select>\n        <input type=\"color\" name=\"iconColor\" title=\"Color\" value=\"#e85a4f\">\n        <header>Background</header>\n        <input type=\"color\" title=\"Color\" name=\"bgColor\" value=\"#fafafa\">\n    </mbr-parameters>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"counter-container col-md-12 col-lg-{{textWidth}}\">\n                <h4 class=\"mbr-section-title mbr-fonts-style mb-4\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-1\">Einsatzgebiet</h4>\n                <div class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\" data-multiline mbr-article>\n                    <ul>\n                        <li><b>Glattbrugg/Glattpark/Opfikon</b></li><li><b>Zürich - Seebach, Oerlikon, Höngg,&nbsp; Affoltern</b></li><li><b>Kloten, Rümlang, Wallisellen, Dübendorf, Dietlikon, Bassersdorf,&nbsp; Bülach, Niederhasli</b></li><li><b>Regensdorf, Oberglatt, Embrach, Winkel, Nürensdorf, Lufingen, Wangen-Brüttisellen</b></li><li><b>Weitere Gemeinden auf Anfrage&nbsp;</b></li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_cid": "uWByCptHgA",
+          "_anchor": "content8-22",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "content8-22"
+          "_params": {}
         },
         {
           "alias": false,
